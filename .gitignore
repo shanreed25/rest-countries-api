@@ -38,3 +38,13 @@ npm-debug.log*
 *.pem
 .DS_Store
 Thumbs.db
+
+# Wrangler local cache
+.wrangler/
+
+# npm packages (if tools get installed locally)
+node_modules/
+
+# Secrets
+.dev.vars
+.env
