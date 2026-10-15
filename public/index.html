@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST Countries API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <h1>REST Countries API</h1>
+    <header>
+        <div>
+            <!-- title as a link back home -->
+            <a href="">REST Countries API</a>
+
+            <!-- theme toggle button -->
+            <button type="button" >
+                <!-- focusable="false" stops older browsers from adding the SVG as an extra tab stop -->
+                <svg class="theme-toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+                <!-- Dark Mode is the button’s accessible name, so the SVG gets aria-hidden="true" and no label of its own -->
+                 <!-- gives theme.js an easy target in Phase 9 when swapping the text to “Light Mode” -->
+                <span class="theme-toggle">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
 </body>
 </html>
