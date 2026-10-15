@@ -1,1 +1,1 @@
-console.log('Javascript loaded');
+console.log('Javascript Preview loaded');
