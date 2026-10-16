@@ -2,6 +2,26 @@
   --font-family: 'Nunito Sans', sans-serif;
 }
 
+/*Light theme*/
+:root {
+  color-scheme: light;
+  --bg-color: hsl(0, 0%, 99%);
+  --element-color: hsl(0, 100%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --color-input: hsl(0, 0%, 50%);
+  --box-shadow-color: 0 2px 9px hsla(0, 0%, 0%, 0.06);
+}
+
+/*Dark theme*/
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: hsl(207, 26%, 17%);
+  --element-color: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 100%, 100%);
+  --color-input: hsl(0, 100%, 100%);
+  --box-shadow-color: 0 2px 9px hsla(0, 0%, 0%, 0.2);
+}
+
 /* Reset */
 *,
 *::before,
@@ -40,6 +60,40 @@ button {
 
 
 
+.body {
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.header{
+  background-color: var(--element-color);
+  box-shadow: var(--box-shadow-color);
+}
+
+.header-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80rem;
+  gap: 1rem;
+  
+}
+
+a{
+  text-decoration: none;
+}
+
+.hidden-values {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+}
+
+
 /* Countries List */
 li{
     list-style: none;
@@ -76,5 +130,7 @@ li{
 }
 
 .country-name{
-    
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
 }

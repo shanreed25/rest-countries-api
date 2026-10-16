@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +11,15 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <header>
-        <div>
+    <header class="header">
+        <div class="header-content">
             <!-- title as a link back home -->
-            <a href="">REST Countries API</a>
+            <a class="page-title" href="">REST Countries API</a>
 
             <!-- theme toggle button -->
-            <button type="button" >
+            <button class="toggle-theme-btn" type="button" aria-pressed="false">
                 <!-- focusable="false" stops older browsers from adding the SVG as an extra tab stop -->
-                <svg class="theme-toggle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <svg class="toggle-theme-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                     <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
                 </svg>
                 <!-- Dark Mode is the button’s accessible name, so the SVG gets aria-hidden="true" and no label of its own -->
@@ -34,32 +34,34 @@
         <!-- Home View -->
         <div>
             <h1 class="hidden-values">Countries</h1>
-            <search>
-                <div>
-                    <label for="country-search"></label>
+            <search class="search-controls">
+                <div class="search-input">
+                    <label for="country-search" class="hidden-values">Search for a country</label>
                     <input id="country-search" name="country-search" type="search" placeholder="Search for a country...">
                 </div>
-                <div>
-                    <label for="region"></label>
+                
+                <div class="region-filter-container">
+                    <label class="hidden-values" for="region">Filter By Region</label>
                     <select name="region" id="region">
-                        <option value=""></option>
+                        <option value="">Filter By Region</option>
                         <option value="Africa">Africa</option>
                         <option value="Americas">Americas</option>
                         <option value="Asia">Asia</option>
                         <option value="Europe">Europe</option>
                         <option value="Oceania">Oceania</option>
                     </select>
+                    
                 </div>
             </search>
             <!------------------------ Home View ------------------------>
             <section>
-                <ul id= "countries-list" class="country-card-grid">
+                <ul id= "countries-list" class="country-card-grid" role="list">
                     
                 </ul>
             </section>
 
             <!------------------------ Details View ------------------------>
-            <section>
+            <!-- <section>
                 
                  <button>Back</button>
 
@@ -77,7 +79,7 @@
                     </div>
                     
                  </article>
-            </section>
+            </section> -->
         </div>
 
 
