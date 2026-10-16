@@ -1,5 +1,8 @@
 import { loadCountries } from "./data.js";
 import { setCountries, getCountryByCode } from "./state.js";
+import { showLoadingState } from "./views/status.js";
+
+
 
 loadCountries().then((countries) => {
     /*
@@ -15,3 +18,8 @@ loadCountries().then((countries) => {
     console.log(getCountryByCode('XYZ'));
     console.log(countries.length)
 })
+
+showLoadingState();
+setTimeout(() => {
+  showError(() => console.log('retry clicked'));
+}, 2000);
