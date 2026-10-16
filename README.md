@@ -16,3 +16,6 @@
 - [ ] Build the static skeleton with sample content
     - HTML for the home with a few sample countries
     - HTML for the details view
+
+
+
