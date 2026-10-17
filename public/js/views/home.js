@@ -50,12 +50,12 @@ export function renderCountires(countries) {
 export function filterByRegion(countries, regionQuery) {
   const matches = [];
 
-  if (region === "") {
+  if (regionQuery === "") {
     return countries;
   }
 
   for (const country of countries) {
-    if (countries.region === regionQuery) {
+    if (country.region === regionQuery) {
       matches.push(country);
     }
   }
@@ -77,5 +77,19 @@ export function searchForCountry(countries, searchRegion) {
 
 export function searchRegionFilter(countries) {
   const searchInput = document.getElementById("country-search");
-  const regionChoice = document.getElementById("country-region");
+  const regionSelect = document.getElementById("country-region");
+
+  function updateList(){
+    const searchQuery = searchInput.value.toLowerCase().trim();
+    const region = regionSelect.value;
+
+    const filterRegions = filterByRegion(countries, region);
+
+    const matches = searchForCountry(filterRegions, searchQuery);
+
+    renderCountires(matches)
+  }
+
+  searchInput.addEventListener('input', updateList);
+  regionSelect.addEventListener('input', updateList);
 }
