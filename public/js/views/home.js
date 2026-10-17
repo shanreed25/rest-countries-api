@@ -1,0 +1,102 @@
+export function createCounrtyCard(country) {
+  const listItem = document.createElement("li");
+  const article = document.createElement("article");
+  const flag = document.createElement("img");
+
+  article.className = "country-card";
+  flag.className = "country-flag";
+
+  flag.src = country.flags.png;
+  flag.width = 320;
+  flag.height = 213;
+  flag.loading = 'lazy';
+
+  const info = createCounrtyCardDetails(country);
+  article.append(flag, info);
+  listItem.append(article);
+
+  return listItem;
+}
+
+export function createCounrtyCardDetails(country) {
+//   console.log(country.region);
+  const info = document.createElement("div");
+  const countryName = document.createElement("h3");
+  const link = document.createElement('a');
+  const population = document.createElement("p");
+  const region = document.createElement("p");
+  const capital = document.createElement("p");
+  
+
+  info.className = "country-card-info";
+  countryName.className = "country-name";
+  link.className = 'country-link';
+  link.href = `#/country/${country.alpha3Code}`
+
+
+  population.textContent = `Population: ${country.population}`;
+  region.textContent = `Region: ${country.region}`;
+  capital.textContent = `Capital: ${country.capital}`;
+  link.textContent = country.name
+
+  countryName.append(link);
+  info.append(countryName, population, region, capital);
+  return info;
+}
+
+export function renderCountires(countries) {
+  const countriesUL = document.getElementById("countries-list");
+
+  countriesUL.innerHTML = ""; //claer old cards
+
+  for (const country of countries) {
+    countriesUL.append(createCounrtyCard(country));
+  }
+}
+
+export function filterByRegion(countries, regionQuery) {
+  const matches = [];
+
+  if (regionQuery === "") {
+    return countries;
+  }
+
+  for (const country of countries) {
+    if (country.region === regionQuery) {
+      matches.push(country);
+    }
+  }
+
+  return matches;
+}
+
+export function searchForCountry(countries, searchRegion) {
+    const matches = [];
+
+    for (const country of countries) {
+      if (country.name.toLowerCase().includes(searchRegion)) {
+        matches.push(country);
+      }
+    }
+
+    return matches;
+}
+
+export function searchRegionFilter(countries) {
+  const searchInput = document.getElementById("country-search");
+  const regionSelect = document.getElementById("country-region");
+
+  function updateList(){
+    const searchQuery = searchInput.value.toLowerCase().trim();
+    const region = regionSelect.value;
+
+    const filterRegions = filterByRegion(countries, region);
+
+    const matches = searchForCountry(filterRegions, searchQuery);
+
+    renderCountires(matches)
+  }
+
+  searchInput.addEventListener('input', updateList);
+  regionSelect.addEventListener('input', updateList);
+}
