@@ -18,21 +18,27 @@ export function createCounrtyCard(country) {
 }
 
 export function createCounrtyCardDetails(country) {
-  console.log(country.region);
+//   console.log(country.region);
   const info = document.createElement("div");
   const countryName = document.createElement("h3");
+  const link = document.createElement('a');
   const population = document.createElement("p");
   const region = document.createElement("p");
   const capital = document.createElement("p");
+  
 
   info.className = "country-card-info";
   countryName.className = "country-name";
+  link.className = 'country-link';
+  link.href = `#/country/${country.alpha3Code}`
 
-  countryName.innerText = country.name;
-  population.innerHTML = `Population: ${country.population}`;
-  region.innerHTML = `Region: ${country.region}`;
+
+  population.textContent = `Population: ${country.population}`;
+  region.textContent = `Region: ${country.region}`;
   capital.textContent = `Capital: ${country.capital}`;
+  link.textContent = country.name
 
+  countryName.append(link);
   info.append(countryName, population, region, capital);
   return info;
 }

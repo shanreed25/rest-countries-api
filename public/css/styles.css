@@ -175,3 +175,18 @@ li{
     font-weight: 800;
     margin-bottom: 1rem;
 }
+
+.country-link::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.country-card:has(.country-link:focus){
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
+}
+
+.country-link:focus-visible {
+  outline: none;
+}
