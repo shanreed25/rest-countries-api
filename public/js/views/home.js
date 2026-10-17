@@ -19,6 +19,7 @@ export function createCounrtyCard(country){
 }
 
 export function createCounrtyCardDetails(country){
+    console.log(country.region);
     const info = document.createElement('div');
     const countryName = document.createElement('h3')
     const population = document.createElement('p')
@@ -32,9 +33,9 @@ export function createCounrtyCardDetails(country){
     countryName.innerText = country.name
     population.innerHTML = `Population: ${country.population}`
     region.innerHTML = `Region: ${country.region}`
-    capital.innerHTML = `Capital: ${country.capital}`
+    capital.textContent = `Capital: ${country.capital}`
 
-    info.append(countryName, population, region)
+    info.append(countryName, population, region, capital)
     return info;
 }
 
@@ -42,7 +43,33 @@ export function createCounrtyCardDetails(country){
 export function renderCountires(countries){
     const countriesUL = document.getElementById("countries-list");
 
+
+    countriesUL.innerHTML = '';//claer old cards
+
     for (const country of countries){
         countriesUL.append(createCounrtyCard(country))
     }
+
+
+}
+
+export function searchForCountry(countries){
+    const searchInput = document.getElementById("country-search");
+
+    searchInput.addEventListener('input', () => {
+        const matches = [];
+
+        const searchQuery = searchInput.value.toLowerCase();
+
+        for (const country of countries){
+            const countryName = country.name.toLowerCase();
+            if (countryName.includes(searchQuery)){
+                matches.push(country);
+            }
+        }
+
+        renderCountires(matches)
+
+
+    })
 }
