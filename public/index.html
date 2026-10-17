@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST Countries API</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <script type="module" src="js/main.js"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
             <!-- title as a link back home -->
-            <a class="page-title" href="">REST Countries API</a>
+            <a class="page-title" href="#/">REST Countries API</a>
 
             <!-- theme toggle button -->
             <button class="toggle-theme-btn" type="button" aria-pressed="false">
                 <!-- focusable="false" stops older browsers from adding the SVG as an extra tab stop -->
-                <svg class="toggle-theme-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <svg class="toggle-theme-icon" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true" focusable="false">
                     <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
                 </svg>
                 <!-- Dark Mode is the button’s accessible name, so the SVG gets aria-hidden="true" and no label of its own -->
-                 <!-- gives theme.js an easy target in Phase 9 when swapping the text to “Light Mode” -->
+                <!-- gives theme.js an easy target in Phase 9 when swapping the text to “Light Mode” -->
                 <span class="theme-toggle">Dark Mode</span>
             </button>
         </div>
@@ -32,18 +38,20 @@
     <main id="main">
 
         <!-- Home View -->
-        <div>
+        <div id="home-view">
             <h1 class="hidden-values">Countries</h1>
             <search class="search-controls">
                 <div class="search-input">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="m20 20-3.5-3.5" stroke-linecap="round" />
-                </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
+                        focusable="false">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-3.5-3.5" stroke-linecap="round" />
+                    </svg>
                     <label for="country-search" class="hidden-values">Search for a country</label>
-                    <input id="country-search" name="country-search" type="search" placeholder="Search for a country...">
+                    <input id="country-search" name="country-search" type="search"
+                        placeholder="Search for a country...">
                 </div>
-                
+
                 <div class="region-filter-container">
                     <label class="hidden-values" for="region">Filter By Region</label>
                     <select name="region" id="country-region">
@@ -54,40 +62,54 @@
                         <option value="Europe">Europe</option>
                         <option value="Oceania">Oceania</option>
                     </select>
-                    
+
                 </div>
             </search>
             <!------------------------ Home View ------------------------>
             <section>
-                <ul id= "countries-list" class="country-card-grid" role="list">
-                    
+                <ul id="countries-list" class="country-card-grid" role="list">
+
                 </ul>
             </section>
-
-            <!------------------------ Details View ------------------------>
-            <!-- <section>
-                
-                 <button>Back</button>
-
-                 <article>
-                    <img src="" alt="">
-                    <div>
-                        <h1>Country Name</h1>
-                        <div>
-                            <h2>Country Details</h2>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2>Border Countries</h2>
-                    </div>
-                    
-                 </article>
-            </section> -->
         </div>
+
+
+        <!------------------------ Details View ------------------------>
+        <section id="detail-view" hidden>
+
+            <button id="back-button" class="back-button" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
+                    focusable="false">
+                    <path d="M19 12H5m6-6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Back
+            </button>
+
+            <p id="detail-not-found" class="status" hidden>Country not found.</p>
+
+            <article id="detail-content" class="detail-layout">
+                <img id="detail-flag" class="detail-flag" src="" alt="">
+
+                <div>
+                    <!-- tabindex="-1" lets JavaScript move focus here without adding a tab stop -->
+                    <h1 id="detail-name" class="detail-name" tabindex="-1"></h1>
+
+                    <div class="detail-lists">
+                        <dl id="detail-list-main"></dl>
+                        <dl id="detail-list-extra"></dl>
+                    </div>
+
+                    <div class="border-countries">
+                        <h2>Border Countries:</h2>
+                        <ul id="border-list" role="list"></ul>
+                    </div>
+                </div>
+            </article>
+        </section>
 
 
     </main>
 
 </body>
+
 </html>

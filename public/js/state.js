@@ -8,15 +8,9 @@ export function setCountries(itemsList){
     countries = itemsList;//saves the array 
 
 
-    // .set() is the usual way to add to a Map, adding one entry at a time
-    // countriesByCode = new Map();
-    // for (const country of list) {
-    // countriesByCode.set(country.alpha3Code, country);
-    // }
-
-    //Map constructor accepts an array of [key, value] pairs and calls 
-    // .set() for each pair behind the scenes
-    countriesCode = new Map(itemsList.map((country) => [country.alpha3Code, country]))
+    for (const country of itemsList){
+        countriesCode.set(country.alpha3Code, country);
+    }
 
 }
 
@@ -28,4 +22,14 @@ export function getCountries(){//for the home view
 
 export function getCountryByCode(code){//for the detail view
     return countriesCode.get(code);
+}
+
+let navigatedInApp = false;//will turn true when the hash is changed
+
+export function hasNavigatedInApp(){
+    return navigatedInApp;
+}
+
+export function setNavigatedInApp(value){
+    navigatedInApp = value;
 }
