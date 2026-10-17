@@ -9,6 +9,7 @@ export function createCounrtyCard(country) {
   flag.src = country.flags.png;
   flag.width = 320;
   flag.height = 213;
+  flag.loading = 'lazy';
 
   const info = createCounrtyCardDetails(country);
   article.append(flag, info);
