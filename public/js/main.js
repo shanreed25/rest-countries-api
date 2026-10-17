@@ -4,7 +4,6 @@ import { renderCountires } from "./views/home.js";
 
 
 
-
 loadCountries().then((countries) => {
   renderCountires(countries)
 })
