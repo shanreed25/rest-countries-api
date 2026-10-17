@@ -2,7 +2,7 @@
 /*
 Country data, swap for hosted url later
 */
-const DATA_URL = '../public/data/data.json';
+const DATA_URL = './data/data.json';
 
 export async function loadCountries(){
     //fetch returns a promise so I need to wait 
