@@ -7,6 +7,7 @@ export function createCounrtyCard(country) {
   flag.className = "country-flag";
 
   flag.src = country.flags.png;
+  flag.alt = "";
   flag.width = 320;
   flag.height = 213;
   flag.loading = 'lazy';
@@ -34,9 +35,9 @@ export function createCounrtyCardDetails(country) {
   link.href = `#/country/${country.alpha3Code}`
 
 
-  population.textContent = `Population: ${country.population}`;
+  population.textContent = `Population: ${country.population.toLocaleString("en-US")}`;
   region.textContent = `Region: ${country.region}`;
-  capital.textContent = `Capital: ${country.capital}`;
+  capital.textContent = `Capital: ${country.capital ?? "None"}`;
   link.textContent = country.name
 
   countryName.append(link);
