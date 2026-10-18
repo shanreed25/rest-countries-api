@@ -62,11 +62,16 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   font-weight: 300;
+  font-family: var(--font-family)
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .hidden-values {
@@ -95,6 +100,10 @@ a {
   padding: 2rem 1rem;
 }
 
+.page-title{
+  font-weight: 800;
+}
+
 .toggle-theme-btn {
   padding: 0.5rem 0;
   border: 0;
@@ -106,12 +115,12 @@ a {
   gap: 0.5rem;
 }
 
-.theme-toggle-icon {
+.toggle-theme-icon {
   width: 1rem;
   height: 1rem;
 }
 
-:root[data-theme="dark"] .theme-toggle-icon {
+:root[data-theme="dark"] .toggle-theme-icon {
   fill: currentColor;
 }
 
@@ -153,12 +162,12 @@ a {
   color: var(--input-color);
 }
 
-.region-filter {
+.region-filter-container {
   position: relative;
   width: 12.5rem;
 }
 
-.region-filter select {
+.region-filter-container select {
   appearance: none;
   width: 100%;
   padding: 1.1rem 3rem 1.1rem 1.5rem;
@@ -169,7 +178,7 @@ a {
   font-size: 0.8rem;
 }
 
-.region-filter svg {
+.region-filter-container svg {
   position: absolute;
   top: 50%;
   right: 1.5rem;
@@ -363,7 +372,7 @@ li {
   }
 
   #country-search,
-  .region-filter select {
+  .region-filter-container select {
     font-size: 0.875rem;
   }
 
